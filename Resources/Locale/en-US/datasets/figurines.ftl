@@ -146,6 +146,9 @@ figurines-wizard-4 = FIREBALL!
 
 figurines-space-dragon-1 = Fish will consume the station.
 
+#Goob content
+figurines-mansus-1 = R'CH TH' TR'TH!
+
 # figurines-queen
 
 figurines-rat-king-1 = Gimme some food, capiche?

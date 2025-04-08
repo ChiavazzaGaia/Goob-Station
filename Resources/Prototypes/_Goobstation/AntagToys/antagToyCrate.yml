@@ -1,0 +1,80 @@
+- type: entity
+  id: AntagToyCrate
+  parent: CrateToyBox
+  name: box of evil replicas
+  description: A box full of replicas of memorabilias collected from evil do-no-gooders; perfect for when the clown is feeling extra naughty.
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: ToyHereticBlade
+      - id: ToySword
+        amount: 2
+      - id: FoamBlade
+        amount: 2
+      - id: ClothingEyesGlassesCheapSunglasses
+      - id: WeaponLauncherTaiwanPond
+      - id: GrenadeToy
+        amount: 3
+      - id: FoamSubMachineGunC20r
+      - id: BoxDonkSoftBox    #Foam bullets, I'm not sure why the ID is called like that
+      - id: ToyMansusGrasp
+      - id: ToyCodexCicatrix
+      - id: ToyFastDrawImplanter
+      - id: ToyFlash
+      - id: ToyUplink
+      - id: PlushieHeadslug
+      - id: LingJuiceBottle
+  - type: Sprite
+    sprite: _Goobstation/AntagToys/antag_toy_crate_box.rsi
+    layers:
+    - state: crate
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: crate_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _Goobstation/AntagToys/antag_toy_crate_box.rsi
+    state: crate_icon
+
+- type: entity
+  id: MinorAntagToyCrate
+  parent: CrateToyBox
+  name: smaller box of evil replicas
+  description: A box full of replicas of memorabilias collected from evil do-no-gooders; second and smaller edition!
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: PlushieBingle
+      - id: SyndieTrickyBomb
+        amount: 2
+      - id: FoamWonderprod
+      - id: ClothingCostumeAbductorHead
+      - id: ClothingCostumeAbductor
+      - id: PlushieBingle
+      - id: ClothingNeckCloakVoid
+      - id: ToyEnergyKatana
+      - id: PlushieDragon
+      - id: PlushieCarp
+        amount: 4
+  - type: Sprite
+    sprite: _Goobstation/AntagToys/antag_toy_crate_box.rsi
+    layers:
+    - state: crate
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: crate_door
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: paper
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _Goobstation/AntagToys/antag_toy_crate_box.rsi
+    state: crate_icon
+

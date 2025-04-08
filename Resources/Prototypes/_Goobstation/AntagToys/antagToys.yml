@@ -1,0 +1,251 @@
+- type: entity
+  parent: [BaseWeaponShotgun, BaseGunWieldable]
+  name: foam submachine gun
+  id: FoamSubMachineGunC20r
+  description: A fake SMG, with a plastic tip as space guidelines indicate. Can only shoot foam bullets.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/AntagToys/toy_c20r.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Goobstation/AntagToys/toy_c20r.rsi
+  - type: Gun
+    fireRate: 8
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - BulletFoam
+    capacity: 30
+    proto: BulletFoam
+  - type: PacifismAllowedGun
+
+- type: entity
+  parent: Paper
+  id: ToyCodexCicatrix
+  name: weird looking book
+  description: A very complicated piece of paper to write on, you can't grasp why anyone would waste so much spesos printing something so detailed.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/book.rsi
+    layers:
+    - state: icon
+      map: [ "base" ]
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/book.rsi
+  - type: UseDelay
+    delay: 2.0
+  - type: Paper
+  - type: Appearance
+  - type: ItemToggle
+  - type: ItemToggleSize
+    activatedSize: Normal
+  - type: ToggleAnimation
+
+- type: entity
+  parent: BaseItem
+  id: ToyHereticBlade
+  name: toy heretic blade
+  description: A replica of a blade used by heretics, to prank the cadets who don't know what an heretic is.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/AntagToys/toy_heretic_blade.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/AntagToys/toy_heretic_blade-inhand.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Slash: 0
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+
+- type: entity
+  parent: BaseFigurine
+  id: ToyMansusGrasp
+  name: sus man grasp
+  description: An oddly detailed single green glove. There's a speaker and a small button for you to press!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/mansus_grasp.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Heretic/mansus_grasp.rsi
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#329a00"
+  - type: SpeakOnTrigger
+    pack: FigurinesMansus    #shamelessly using the figurines code
+
+- type: entity
+  parent: Pen
+  id: ToyFastDrawImplanter
+  name: toy fast draw implanter
+  description: Cybersun brand pen made to look like an implant remover!
+  components:
+    - type: Item
+      sprite: _Goobstation/Objects/Specific/Medical/revs_implanter.rsi
+      size: Small
+    - type: Sprite
+      sprite: _Goobstation/Objects/Specific/Medical/revs_implanter.rsi
+      state: implanter1
+      layers:
+        - state: implanter1
+          map: [ "implantFull" ]
+          visible: false
+        - state: implanter0
+          map: [ "implantOnly" ]
+    - type: GenericVisualizer
+      visuals:
+        enum.ImplanterVisuals.Full:
+          implantFull:
+            True: {visible: true}
+            False: {visible: false}
+        enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+          implantOnly:
+            True: {state: broken}
+            False: {state: implanter1}
+
+- type: entity
+  name: toy flash
+  parent: BaseItem
+  id: ToyFlash
+  description: A toy replica of those stinky flashes security uses on the clown.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/flash.rsi
+    layers:
+    - state: flash
+      map: [ "enum.FlashVisuals.BaseLayer" ]
+    - state: flashing
+      map: [ "enum.FlashVisuals.LightLayer" ]
+      visible: false
+      shader: unshaded
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    angle: 0
+    damage:
+      types:
+        Slash: 0
+    soundHit:
+      path: /Audio/Weapons/flash.ogg
+  - type: Item
+  - type: UseDelay
+  - type: Appearance
+
+- type: entity
+  parent: PhoneInstrument
+  id: ToyUplink
+  name: old looking radio
+  description: You can still play music on this!
+  components:
+  - type: Sprite
+    sprite: Objects/Devices/communication.rsi
+    layers:
+    - state: radio
+  - type: Item
+    sprite: Objects/Devices/communication.rsi
+    heldPrefix: radio
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieHeadslug
+  name: headslug plushie
+  description: Quick! Hide the bodies!
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Changeling/headcrab.rsi
+      state: headcrab
+    - type: Item
+      size: Small
+      sprite: _Goobstation/Changeling/headcrab.rsi
+
+- type: entity
+  parent: DrinkBase
+  id: LingJuiceBottle
+  name: bottle of ferrochromic acid
+  description: The tag reads "Leave a puddle under the captain's body for maximum fun effect!"
+  components:
+  - type: Openable
+    sound:
+      collection: packetOpenSounds
+  - type: Sprite
+    sprite: _Goobstation/AntagToys/ling_juice_bottle.rsi
+    layers:
+      - state: icon
+        map: ["enum.OpenableVisuals.Layer"]
+      - state: fill1
+        map: [ "enum.SolutionContainerLayers.Fill" ]
+        visible: false
+      - state: icon-front
+        map: [ "enum.SolutionContainerLayers.Overlay" ]
+  - type: Appearance
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 90
+        reagents:
+        - ReagentId: FerrochromicAcid
+          Quantity: 90
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: fill
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: {state: "icon_open"}
+          False: {state: "icon"}
+  - type: TrashOnSolutionEmpty
+    solution: drink
+
+- type: entity
+  parent: BaseItem
+  id: ToyEnergyKatana
+  name: toy energy katana
+  description: Every kid dreamed of being a ninja. Now you can act like one!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/AntagToys/toy_energy_katana.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/AntagToys/toy_energy_katana.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: RubberHammer
+      params:
+        variation: 0.03
+        volume: 3
+    wideAnimationRotation: -125
+    damage:
+      types:
+        Slash: 0
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieDragon
+  name: dragon plushie
+  description: FISH PLUSHIES WILL CONSUME THE STATION!
+  components:
+    - type: Sprite
+      sprite: _Goobstation/AntagToys/dragon_plushie.rsi
+      state: icon
+    - type: Item
+      size: Large
+      state: icon
+      sprite: _Goobstation/AntagToys/dragon_plushie.rsi
